@@ -2,11 +2,13 @@ import express from 'express'
 
 const app = express()
 
-app.get('/', (req, res) => {
+// get request
+app.get('/' /* endpoit */, (req, res) => {
   console.log(req.url)
   res.send('<h1>Hello</h1>')
 })
 
+// redirect
 app.get('/old', (req, res) => {
   res.redirect(301, '/new')
 })
