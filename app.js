@@ -43,6 +43,38 @@ app.post('/api/channel/', (req, res) => {
   console.log('POST', data.channels)
 })
 
+// PUT
+app.put('/api/channel/:id', (req, res) => {
+  // repalce a channel based on id
+  // respond with 200 or 204
+  // 202 if the operation is async and still pending
+  // baseically an UPDATE nuy we could aslo do an INVERT if the id is avrailable
+  // or we chould choose to create a new id and do an INSERT if the id does not exist
+  let id = parseInt(req.params.id)
+  let name = req.body.name
+  let last_update = Date.now()
+  let idx = data.channels.findIndex((_) => _.id === id)
+  data.channels[idx].name = name
+  data.channels[idx].last_update = last_update
+  res.status(200).json(data.channels[idx])
+  console.log('PUT', data.channels)
+})
+
+// PATCH
+// for partial update
+app.patch('/api/channel/:id', (req, res) => {
+  //edit a channel
+  // respond with 200 or 204
+  // 202 if the operation is async and still pending
+  let id = req.params.id
+  let name = req.body.name
+  let last_update = Date.now()
+  let idx = data.channels.findIndex((item) => item.id == id)
+  data.channels[idx].name = name
+  res.status(200).json(data.channels[idx])
+  console.log('PATCH', data.channels)
+})
+
 app.listen(3000, (err) => {
   if (err) {
     console.log('there was a problem', err)
