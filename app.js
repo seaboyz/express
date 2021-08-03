@@ -93,6 +93,16 @@ app.head('/api/channel', (req, res) => {
   res.status(200).end()
 })
 
+// OPTION
+app.options('/api/channel', (req, res) => {
+  //return headers including ALLOW to say what methods are allowed
+  res.status(200)
+  res.set('Allow', 'GET, POST, PUT, PATCH, DELETE, OPTIONS, HEAD')
+  res.set('Access-Control-Allow-Origin', '*') //cors
+  res.set('Content-Length', '0')
+  res.end()
+})
+
 app.listen(3000, (err) => {
   if (err) {
     console.log('there was a problem', err)
