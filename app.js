@@ -18,6 +18,14 @@ let options = {
 // http://expressjs.com/en/4x/api.html#express.static
 app.use(express.static('public', options))
 
+app.get('/', (req, res) => {
+  let img = `<img src="/img/cat.png"/>`
+  let secret = `<a href="/.htaccess">secret</a>`
+
+  let html = `<!Doctype html><html><head><title>Sample</title></head>`
+  res.send(img)
+})
+
 app.listen(3000, (err) => {
   if (err) {
     console.log('there was a problem', err)
