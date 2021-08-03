@@ -17,13 +17,15 @@ app.get('/', (req, res) => {
   // hanle root
 })
 
-app.get('/things/cars', (req, res) => {})
+app
+  .route('things/cars')
+  .get((req, res) => {})
+  .post((req, res) => {})
 
-app.post('/things/cars', (req, res) => {})
-
-app.get('/things/cars/:carId', (req, res) => {})
-
-app.post('/things/cars/:carId', (req, res) => {})
+app
+  .route('things/cars/:carId')
+  .get((req, res) => {})
+  .post((req, res) => {})
 
 app.listen(3000, (err) => {
   if (err) {
