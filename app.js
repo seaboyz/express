@@ -75,6 +75,18 @@ app.patch('/api/channel/:id', (req, res) => {
   console.log('PATCH', data.channels)
 })
 
+// DELETE
+app.delete('/api/channel/:id', (req, res) => {
+  // delete a channel
+  // respond with 200 or 204
+  // 202 if the operation is async and still pending
+  let id = parseInt(req.params.id)
+
+  data.channels = data.channels.filter((_) => _.id !== id)
+  res.status(204).end()
+  console.log('DELETE', data.channels)
+})
+
 app.listen(3000, (err) => {
   if (err) {
     console.log('there was a problem', err)
