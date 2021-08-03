@@ -87,6 +87,12 @@ app.delete('/api/channel/:id', (req, res) => {
   console.log('DELETE', data.channels)
 })
 
+// HEAD
+app.head('/api/channel', (req, res) => {
+  //return same headers as get. no content. to check that endpoint is functional
+  res.status(200).end()
+})
+
 app.listen(3000, (err) => {
   if (err) {
     console.log('there was a problem', err)
