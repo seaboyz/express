@@ -34,3 +34,13 @@ app.listen(3000, (err) => {
   }
   console.log('listening on port 3000')
 })
+
+/**
+ * "/abc" - handles /abc
+ * "/ab?cd" - handles /acd or /abcd
+ * "/ab+cd" - handles /abcd, /abbbcd, /abbbbbbbcd, etc
+ * "/ab*cd" - "/ab" + anything + "cd"
+ * /a/ - RegExp: anything that contains "a"
+ * /.*man$/ - RegExp: anything that ends with "man"
+ * ^ - starts with
+ */
